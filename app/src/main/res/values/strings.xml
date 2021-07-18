@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">School Bus</string>
-
+    <string name="unique">Enter Uniqe code</string>
+    <string name="phone">Phone No.</string>
+    <string name="mail">Enter Email id</string>
+    <string name="pwd">Enter password</string>
+    <string name="enroll">Enter Enrollment</string>
+    <string name="i">I am A</string>
 </resources>
