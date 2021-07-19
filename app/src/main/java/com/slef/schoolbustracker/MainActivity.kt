@@ -27,4 +27,10 @@ class MainActivity : AppCompatActivity() {
         val intent =Intent (this,driverlogin::class.java)
         startActivity(intent)
     }
+
+    fun driverlogin(view: View) {
+
+        val intent=Intent(this,driverlogin::class.java)
+        startActivity(intent)
+    }
 }

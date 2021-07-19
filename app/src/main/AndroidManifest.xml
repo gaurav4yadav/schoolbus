@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".instituteRegister"></activity>
+        <activity android:name=".driverlogin"></activity>
+        <activity android:name=".instituteRegister" />
         <activity android:name=".studentRegister" />
         <activity android:name=".registerpage" />
         <activity android:name=".institueLogin" />

@@ -6,10 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".instituteRegister">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".studentRegister">
+
+
 
         <EditText
             android:id="@+id/editText"
@@ -17,6 +15,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/mail"
+            android:importantForAutofill="no"
             android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="@+id/editText2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -30,6 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="52dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/pwd"
             android:inputType="textPassword"
@@ -45,22 +45,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="104dp"
-            android:ems="10"
+            android:autofillHints=""
 
+            android:ems="10"
             android:hint="@string/unique"
+            android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="@+id/button3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.55"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editText2"
-            app:layout_constraintVertical_bias="0.217"
-            android:inputType="textPersonName" />
+            app:layout_constraintVertical_bias="0.217" />
 
         <EditText
             android:id="@+id/editText6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="108dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/phone"
             android:inputType="phone"
@@ -69,8 +71,7 @@
             app:layout_constraintHorizontal_bias="0.55"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.976"
-            android:autofillHints="" />
+            app:layout_constraintVertical_bias="0.976" />
 
         <Button
             android:id="@+id/button3"
@@ -82,7 +83,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <EditText
         android:id="@+id/editText7"
@@ -112,7 +113,8 @@
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.985" />
+        app:layout_constraintVertical_bias="0.985"
+        android:importantForAutofill="" />
 
 
 
@@ -129,16 +131,8 @@
         app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.976"
+        android:autofillHints="" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="332dp"
-        android:layout_height="67dp"
-        android:layout_marginBottom="120dp"
-        android:text="Register Now"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
