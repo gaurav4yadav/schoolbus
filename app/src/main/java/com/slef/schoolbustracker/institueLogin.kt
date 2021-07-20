@@ -16,12 +16,14 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_institue_login.*
 import kotlinx.android.synthetic.main.activity_student_login.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+
 
 class institueLogin : AppCompatActivity() {
 
@@ -107,7 +109,7 @@ class institueLogin : AppCompatActivity() {
             startActivity(intent)
             //val mainActivityIntent = Intent(this, MainActivity::class.java)
             // startActivity(mainActivityIntent)
-            finish()
+
         } else {
             signInButton.visibility = View.VISIBLE
             progressBar.visibility = View.GONE
