@@ -85,8 +85,7 @@ class studentLogin : AppCompatActivity() {
             Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
             firebaseAuthWithGoogle(account.idToken!!)
 
-            val intent = Intent(this,studentDashboard::class.java)
-            startActivity(intent)
+
         } catch (e: ApiException) {
             Log.w(TAG, "signInResult:failed code=" + e.statusCode)
 
@@ -100,9 +99,9 @@ class studentLogin : AppCompatActivity() {
         GlobalScope.launch(Dispatchers.IO) {
             val auth = auth.signInWithCredential(credential).await()
             val firebaseUser = auth.user
-            withContext(Dispatchers.Main) {
+           // withContext(Dispatchers.Main) {
                 updateUI(firebaseUser)
-            }
+            //}
         }
 
     }
@@ -113,9 +112,10 @@ class studentLogin : AppCompatActivity() {
 //            val user = User(firebaseUser.uid, firebaseUser.displayName, firebaseUser.photoUrl.toString())
 //            val usersDao = UserDao()
 //            usersDao.addUser(user)
-
-            val mainActivityIntent = Intent(this, MainActivity::class.java)
-            startActivity(mainActivityIntent)
+            val intent = Intent(this,studentDashboard::class.java)
+            startActivity(intent)
+            //val mainActivityIntent = Intent(this, MainActivity::class.java)
+           // startActivity(mainActivityIntent)
             finish()
         } else {
             signInButton.visibility = View.VISIBLE
