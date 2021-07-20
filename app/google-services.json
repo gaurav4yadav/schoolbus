@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "26109872280",
+    "project_id": "school-bus-f733b",
+    "storage_bucket": "school-bus-f733b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26109872280:android:32008fc8eb03196a2668ed",
+        "android_client_info": {
+          "package_name": "com.slef.schoolbustracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26109872280-93bikp7elq8vnr9lehos1p02g4e49n3t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.slef.schoolbustracker",
+            "certificate_hash": "153f0f33a9ff8a67b39f8a51dd80ed9388af161b"
+          }
+        },
+        {
+          "client_id": "26109872280-fubn7arkmvbusu6rn1dbdvt67469o4vh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-O-G-sJWB1fzFYJQmafe8wxP8FdfkgsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26109872280-fubn7arkmvbusu6rn1dbdvt67469o4vh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

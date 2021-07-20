@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
     fun registerfun(view: View) {
 
-        val intent =Intent (this,registerpage::class.java)
+        val intent =Intent (this,driverlogin::class.java)
         startActivity(intent)
     }
 }
