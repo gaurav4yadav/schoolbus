@@ -25,7 +25,7 @@
             android:contentDescription="TODO" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/editText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"
@@ -41,7 +41,7 @@
             android:autofillHints="" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/editText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
@@ -59,6 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:onClick="loginfunction"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.563"
