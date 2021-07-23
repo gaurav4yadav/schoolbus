@@ -14,8 +14,8 @@ import com.slef.schoolbustracker.models.myuser
 class MainActivity : AppCompatActivity() {
 
 
-   // private lateinit var auth: FirebaseAuth
-  //  val current = auth.currentUser
+    //private lateinit var auth: FirebaseAuth
+    //val current = auth.currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,38 +35,6 @@ class MainActivity : AppCompatActivity() {
 //        }
 //    }
 
-//    private fun updateUI(firebaseUser: FirebaseUser?) {
-//        if (firebaseUser != null) {
-//
-////            val user = User(firebaseUser.uid, firebaseUser.displayName, firebaseUser.photoUrl.toString())
-////            val usersDao = UserDao()
-////            usersDao.addUser(user)
-//            val db = Firebase.firestore
-//            // val docRef = db.collection("member").document(current.toString().phonedb)
-//          var user1212:myuser?=null
-//            //  if (null == docRef.get()) {
-//            // if(null==db.collection("member")."phonedb".get())
-//            val user = FirebaseAuth.getInstance().currentUser
-//
-//            val docRef = db?.collection("member")?.document(user?.uid!!)
-//
-//            docRef?.get()?.addOnSuccessListener { documentSnapshot ->
-//                 user1212= documentSnapshot.toObject(myuser::class.java)
-//            }
-//
-//            if (user1212?.phoneid == null) {
-//                val intent = Intent(this, StudentDashboard::class.java)
-//                startActivity(intent)
-//                //val mainActivityIntent = Intent(this, MainActivity::class.java)
-//                // startActivity(mainActivityIntent)
-//
-//            } else {
-//                val intent = Intent(this, instituteDashboard::class.java)
-//                startActivity(intent)
-//            }
-//
-//        }
-//    }
 
     fun studentloginfunc(view: View) {
 
@@ -74,20 +42,45 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun instituteloginfunc(view: View) {
-        val intent = Intent(this, institueLogin::class.java)
-        startActivity(intent)
-    }
-
-    fun registerfun(view: View) {
-
-        val intent = Intent(this, registerpage::class.java)
-        startActivity(intent)
-    }
 
     fun driverlogin(view: View) {
 
-        val intent = Intent(this, driverlogin::class.java)
+        val intent = Intent(this, DriverLoginNew::class.java)
         startActivity(intent)
     }
+//
+//private fun updateUI(firebaseUser: FirebaseUser?) {
+//        var myemail: String? = null
+//        val user = Firebase.auth.currentUser
+//        user?.let {
+//
+//            myemail = user.email
+//        }
+//
+//        val db = Firebase.firestore
+//
+//
+//
+//        db.collection("driver")
+//            .whereEqualTo("emaildb", myemail.toString())
+//            .get()
+//            .addOnSuccessListener {
+//                if (it.size() == 0) {
+//
+//
+//                    val intent = Intent(this, driverDashboard::class.java)
+//                    startActivity(intent)
+//                }
+//                else
+//                {
+//                    val intent = Intent(this, StudentDashboard::class.java)
+//                    startActivity(intent)
+//                }
+//            }
+//
+//
+//
+//    }
+
+
 }

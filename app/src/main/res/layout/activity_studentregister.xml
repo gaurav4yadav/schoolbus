@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".instituteRegister">
+    tools:context=".StudentRegister">
 
 
 
@@ -30,13 +30,13 @@
         android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="text"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.611"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.246" />
+       />
 
     <EditText
         android:id="@+id/editText2"
@@ -70,8 +70,8 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="53dp"
-        android:layout_height="16dp"
+        android:layout_width="123dp"
+        android:layout_height="57dp"
         android:onClick="goon"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"

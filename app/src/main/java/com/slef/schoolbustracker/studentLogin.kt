@@ -18,21 +18,21 @@ class studentLogin : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_login)
-
         auth = Firebase.auth
     }
 
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if(currentUser != null){
-         updateUI(currentUser);
-          // ...// reload();
+            updateUI(currentUser);
+            // ...// reload();
         }
     }
+    fun TrackBus(view: View) {
 
-    fun signin(view: View) {
+
 
         val editText = findViewById<EditText>(R.id.editText)
         val email = editText.text.toString()
@@ -45,38 +45,45 @@ class studentLogin : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                  //  Log.d(TAG, "signInWithEmail:success")
-                    Toast.makeText(baseContext, "Authentication sucesfull , You are in !.",
-                        Toast.LENGTH_SHORT).show()
+                    //  Log.d(TAG, "signInWithEmail:success")
+                    Toast.makeText(
+                        baseContext, " !!! Welcome !!!!.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
                     // If sign in fails, display a message to the user.
-                  //  Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show()
+                    //  Log.w(TAG, "signInWithEmail:failure", task.exception)
+                    Toast.makeText(
+                        baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
                     updateUI(null)
                 }
             }
-
-
     }
-
-
     private fun updateUI(firebaseUser: FirebaseUser?) {
         if(firebaseUser != null) {
-
-//            val user = User(firebaseUser.uid, firebaseUser.displayName, firebaseUser.photoUrl.toString())
-//            val usersDao = UserDao()
-//            usersDao.addUser(user)
-            val intent = Intent(this,StudentDashboard::class.java)
+            val intent= Intent(this,StudentDashboard::class.java)
             startActivity(intent)
-            //val mainActivityIntent = Intent(this, MainActivity::class.java)
-            // startActivity(mainActivityIntent)
-
         }
 
     }
+
+
+
+
+
+
+
+
+    fun gotoregisterationfun(view: View) {
+
+        val intent=Intent(this,StudentRegister::class.java)
+        startActivity(intent)
+    }
+
 
 }
 
