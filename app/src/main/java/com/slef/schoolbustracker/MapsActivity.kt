@@ -108,8 +108,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //                                    Log.d(TAG, "get failed with ", exception)
 //                                }
 //                    }
+                    var myemail:String?=null
+                    val user = Firebase.auth.currentUser
+                    user?.let {
 
-
+                        myemail = user.email.toString()
+                    }
+                    val primaryKey= user?.getUid()
                     lateinit var databaseRef: DatabaseReference
                     databaseRef = Firebase.database.reference
 
@@ -138,14 +143,18 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //                    )
                    // map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
                    // map.animateCamera(CameraUpdateFactory.zoomTo(11F));
+                    val database = Firebase.database
+                    val myRef = database.getReference("message")
+
+                    myRef.setValue("Hello, World!")
 
 
-
-                    val driver = dc("ALLISSWELL@gmail.com",location.latitude.toDouble(),location.longitude.toDouble())
-
+                    val driver = dc(myemail.toString(),location.latitude.toDouble(),location.longitude.toDouble())
 
 
-                    databaseRef.child("user").setValue(driver)
+                    //val ref = Firebase.getInstance().getReference("user")
+
+                    databaseRef.child(primaryKey.toString()).setValue(driver)
 
                    // databaseRef.child("user").child(currentUser.toString()).setValue("A999999")
                         .addOnSuccessListener {
