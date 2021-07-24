@@ -11,13 +11,13 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class studentLogin : AppCompatActivity() {
+class DriverLoginNew : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_student_login)
+        setContentView(R.layout.activity_driver_login_new)
         auth = Firebase.auth
     }
 
@@ -47,7 +47,7 @@ class studentLogin : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     //  Log.d(TAG, "signInWithEmail:success")
                     Toast.makeText(
-                        baseContext, " !!! Welcome !!!!.",
+                        baseContext, " !!! Welcome sir !!!!.",
                         Toast.LENGTH_SHORT
                     ).show()
                     val user = auth.currentUser
@@ -65,7 +65,7 @@ class studentLogin : AppCompatActivity() {
     }
     private fun updateUI(firebaseUser: FirebaseUser?) {
         if(firebaseUser != null) {
-            val intent= Intent(this,StudentDashboard::class.java)
+            val intent= Intent(this,DriverDash::class.java)
             startActivity(intent)
         }
 
@@ -80,10 +80,8 @@ class studentLogin : AppCompatActivity() {
 
     fun gotoregisterationfun(view: View) {
 
-        val intent=Intent(this,StudentRegister::class.java)
+        val intent= Intent(this,DriverRegister::class.java)
         startActivity(intent)
     }
 
-
 }
-
