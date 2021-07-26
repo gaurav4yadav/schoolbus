@@ -14,14 +14,14 @@ import com.slef.schoolbustracker.models.myuser
 class MainActivity : AppCompatActivity() {
 
 
-    //private lateinit var auth: FirebaseAuth
-    //val current = auth.currentUser
+    private lateinit var auth: FirebaseAuth
+    private val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       // auth = Firebase.auth
+        auth = Firebase.auth
     }
 
 

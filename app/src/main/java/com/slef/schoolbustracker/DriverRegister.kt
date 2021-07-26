@@ -12,6 +12,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
+
+
+public var myitem=""
 class DriverRegister : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -52,7 +55,7 @@ class DriverRegister : AppCompatActivity() {
         val unique = editText3.text.toString()
 
 
-
+myitem=unique
 
 
 
@@ -68,9 +71,15 @@ class DriverRegister : AppCompatActivity() {
                         "namedb" to name
 
                     )
+                    var email=""
+                  val useras = auth.currentUser
+                    if (useras !== null) {
 
-                    db.collection("driver")
-                        .add(data)
+                        email = useras.email.toString()
+                    }
+
+                    db.collection("driver").document(email)
+                        .set(data)
                         .addOnSuccessListener {
                             //   Log.d(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
                             Toast.makeText(

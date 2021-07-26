@@ -17,14 +17,21 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.IgnoreExtraProperties
 import com.google.firebase.database.ktx.database
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.auth.User
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.slef.schoolbustracker.models.user
+import com.squareup.okhttp.internal.DiskLruCache
 
 
 @IgnoreExtraProperties
@@ -108,15 +115,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //                                    Log.d(TAG, "get failed with ", exception)
 //                                }
 //                    }
-                    var myemail:String?=null
-                    val user = Firebase.auth.currentUser
-                    user?.let {
-
-                        myemail = user.email.toString()
-                    }
-                    val primaryKey= user?.getUid()
                     lateinit var databaseRef: DatabaseReference
-                    databaseRef = Firebase.database.reference
+                    databaseRef = FirebaseDatabase.getInstance().getReference("driver")
 
                     val currentUser = auth.currentUser
                     val locationlogging = LocationLogging(location.latitude, location.longitude)
@@ -143,34 +143,59 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 //                    )
                    // map.moveCamera(CameraUpdateFactory.newLatLng(sydney));
                    // map.animateCamera(CameraUpdateFactory.zoomTo(11F));
-                    val database = Firebase.database
-                    val myRef = database.getReference("message")
-
-                    myRef.setValue("Hello, World!")
 
 
-                    val driver = dc(myemail.toString(),location.latitude.toDouble(),location.longitude.toDouble())
 
 
-                    //val ref = Firebase.getInstance().getReference("user")
+//                    val myRef = database.getReference("message")
+//
+//                    myRef.setValue("Hello, World!")
+                    var trya:String=""
+                    var database: FirebaseFirestore ?=null
+                    database = FirebaseFirestore.getInstance()
+                    var myemail:String?=null
+                    val user = Firebase.auth.currentUser
+                    user?.let {
 
-                    databaseRef.child(primaryKey.toString()).setValue(driver)
+                        myemail = user.email.toString()
+                    }
+
+
+                    Toast.makeText(baseContext,"$myemail", Toast.LENGTH_LONG).show()
+                    database.collection("driver").document(myemail.toString().trim()).get()
+                        .addOnSuccessListener { document->
+                            if(document!=null)
+                            {
+                                trya=document.getString("uniquedb").toString()
+
+
+                                val driver = dc(myemail.toString(),location.latitude.toDouble(),location.longitude.toDouble())
+                                databaseRef.child( trya.toString()).setValue(driver)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Locations written into the database",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+                                    .addOnFailureListener {
+                                        Toast.makeText(
+                                            applicationContext,
+                                            "Error occured while writing your location to the database",
+                                            Toast.LENGTH_LONG
+                                        ).show()
+                                    }
+
+
+
+                            }
+                        }
+
+
+
 
                    // databaseRef.child("user").child(currentUser.toString()).setValue("A999999")
-                        .addOnSuccessListener {
-                            Toast.makeText(
-                                applicationContext,
-                                "Locations written into the database",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                        .addOnFailureListener {
-                            Toast.makeText(
-                                applicationContext,
-                                "Error occured while writing your location to the database",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
+
 
                 }
 
@@ -228,3 +253,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
 }
+
+
+
+

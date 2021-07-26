@@ -4,87 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".DriverRegister">
 
     <Button
         android:id="@+id/button10"
-        android:layout_width="299dp"
-        android:layout_height="69dp"
+        android:layout_width="301dp"
+        android:layout_height="61dp"
+
         android:onClick="adddriverfun"
         android:text="Add Driver"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.753" />
 
     <Button
         android:id="@+id/button11"
-        android:layout_width="286dp"
-        android:layout_height="78dp"
-        android:text="Track "
+        android:layout_width="301dp"
+        android:layout_height="61dp"
         android:onClick="trackfrom"
+        android:text="Track "
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
+        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781"
+        app:layout_constraintVertical_bias="0.859"
         tools:ignore="OnClick" />
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="328dp"
-        android:layout_height="60dp"
+        android:layout_width="301dp"
+        android:layout_height="61dp"
+
         android:ems="10"
         android:hint="Drivr email "
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.079" />
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="338dp"
-        android:layout_height="53dp"
+        android:layout_width="301dp"
+        android:layout_height="61dp"
         android:layout_marginTop="16dp"
+
         android:ems="10"
         android:hint="Driver name "
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+        app:layout_constraintVertical_bias="0.542" />
 
     <EditText
         android:id="@+id/editText1"
-        android:layout_width="326dp"
-        android:layout_height="58dp"
+        android:layout_width="301dp"
+        android:layout_height="61dp"
+
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.24" />
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="319dp"
-        android:layout_height="55dp"
+        android:layout_width="301dp"
+        android:layout_height="61dp"
+
         android:ems="10"
         android:hint="create Driver Uniue code"
         android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.763"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.285" />
+        app:layout_constraintVertical_bias="0.385" />
 </androidx.constraintlayout.widget.ConstraintLayout>
