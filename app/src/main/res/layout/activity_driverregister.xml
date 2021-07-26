@@ -21,20 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.753" />
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="301dp"
-        android:layout_height="61dp"
-        android:onClick="trackfrom"
-        android:text="Track "
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.563"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.859"
-        tools:ignore="OnClick" />
 
     <EditText
         android:id="@+id/editText"
@@ -90,7 +76,7 @@
         android:layout_height="61dp"
 
         android:ems="10"
-        android:hint="create Driver Uniue code"
+        android:hint="create Bus Code "
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"

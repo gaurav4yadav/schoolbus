@@ -13,4 +13,8 @@ class dc {
         latitute= lati
         longitude=longi
     }
+
+    constructor()
+
+
 }

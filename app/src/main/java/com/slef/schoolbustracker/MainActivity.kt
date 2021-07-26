@@ -1,15 +1,19 @@
 package com.slef.schoolbustracker
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.slef.schoolbustracker.models.myuser
+import java.sql.Driver
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,15 +29,28 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-//    public override fun onStart() {
-//        super.onStart()
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        val currentUser = auth.currentUser
-//        if (currentUser != null) {
-//            updateUI(currentUser)
-//            // ...// reload();
-//        }
-//    }
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            updateUI(currentUser)
+            // ...// reload();
+        }
+
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        )
+
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),1
+            )
+
+
+    }
 
 
     fun studentloginfunc(view: View) {
@@ -48,39 +65,42 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, DriverLoginNew::class.java)
         startActivity(intent)
     }
-//
-//private fun updateUI(firebaseUser: FirebaseUser?) {
-//        var myemail: String? = null
-//        val user = Firebase.auth.currentUser
-//        user?.let {
-//
-//            myemail = user.email
-//        }
-//
-//        val db = Firebase.firestore
-//
-//
-//
-//        db.collection("driver")
-//            .whereEqualTo("emaildb", myemail.toString())
-//            .get()
-//            .addOnSuccessListener {
-//                if (it.size() == 0) {
-//
-//
-//                    val intent = Intent(this, driverDashboard::class.java)
-//                    startActivity(intent)
-//                }
-//                else
-//                {
-//                    val intent = Intent(this, StudentDashboard::class.java)
-//                    startActivity(intent)
-//                }
-//            }
-//
-//
-//
-//    }
+
+private fun updateUI(firebaseUser: FirebaseUser?) {
+        var myemail: String? = null
+        val user = Firebase.auth.currentUser
+        user?.let {
+
+            myemail = user.email
+        }
+
+        val db = Firebase.firestore
+
+
+
+        db.collection("driver")
+            .whereEqualTo("emaildb", myemail.toString())
+            .get()
+            .addOnSuccessListener {
+                if (it.size() == 0) {
+
+                    val intent = Intent(this, StudentDashboard::class.java)
+                    startActivity(intent)
+
+                }
+                else
+                {
+
+
+
+                    val intent = Intent(this, DriverDash::class.java)
+                    startActivity(intent)
+                }
+            }
+
+
+
+    }
 
 
 }

@@ -3,7 +3,9 @@ package com.slef.schoolbustracker
 
 import android.annotation.SuppressLint
 import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -47,7 +49,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         var currentUser: User? = null
         val TAG = "MapsActivity"
     }
-   var sydney = LatLng(9.9,9.9)
+   var sydney = LatLng(23.2295537,77.392109)
     private lateinit var auth: FirebaseAuth
 
     private lateinit var map: GoogleMap
@@ -55,12 +57,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: LocationCallback
-    var MarkerOptionss = MarkerOptions().position(sydney)
+    //var mark = MarkerOptions().position(sydney)
     //map.addMarker(MarkerOptionss)
 
-   // var marker: Marker =map?.addMarker(MarkerOptions())
+  // var marker: Marker =map?.addMarker(MarkerOptions())
 
-
+var marker:Marker? = null
 
 
     private fun getLocationAccess() {
@@ -122,13 +124,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                     val locationlogging = LocationLogging(location.latitude, location.longitude)
 
                     sydney = LatLng(location.getLatitude(), location.getLongitude())
-
-                        map.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
-
-
-
-                    //  perth.position(LatLng)
+                    if(marker!=null)
+                  marker!!.remove()
+                    marker=map.addMarker(MarkerOptions().position(sydney).title("here"))
                     map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+                    map.moveCamera(CameraUpdateFactory.zoomTo(16f))
 //                    var markerOptions = MarkerOptions()
 //                    markerOptions.position(sydney)
 //                    markerOptions.title("Current Position")
@@ -247,6 +247,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
+
+
         getLocationAccess()
     }
 

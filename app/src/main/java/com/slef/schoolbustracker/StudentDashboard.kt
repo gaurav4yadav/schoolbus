@@ -1,5 +1,6 @@
 package com.slef.schoolbustracker
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,7 +22,7 @@ import com.google.firebase.ktx.Firebase
 //        }
 //        Toast.makeText(baseContext, "$myemail",Toast.LENGTH_SHORT).show()
 
-
+public var code=""
 class StudentDashboard : AppCompatActivity() {
 
     val database = Firebase.database
@@ -52,54 +53,73 @@ var lt=""
     fun startdata(view: View) {
 
         val drivercode = findViewById<EditText>(R.id.editText)
-        val code = drivercode.text.toString()
+        code = drivercode.text.toString()
 
         val path="driver"+code
         //Toast.makeText(baseContext,"$path",Toast.LENGTH_LONG).show()
 
-        myRef.child(code).get()
-            .addOnSuccessListener {
-
-                if(it.exists())
-                {
-                     lat=it.child("latitute").value.toString()
-                     lon=it.child("longitude").value.toString()
-
-                    save1=lat
-                    save2=lon
-                    Toast.makeText(baseContext,"$lat",Toast.LENGTH_SHORT).show()
-
-                    Toast.makeText(baseContext,"$lon",Toast.LENGTH_SHORT).show()
-
-                }
-                else
-                {
-Toast.makeText(baseContext,"failed",Toast.LENGTH_LONG).show()
-                }
-            }
-        Toast.makeText(baseContext,"tesing",Toast.LENGTH_SHORT).show()
-       Toast.makeText(baseContext,"$save1",Toast.LENGTH_LONG).show()
+//        myRef.child(code).get()
+//            .addOnSuccessListener {
+//
+//                if(it.exists())
+//                {
+//                     lat=it.child("latitute").value.toString()
+//                     lon=it.child("longitude").value.toString()
+//
+//                    save1=lat
+//                    save2=lon
+//                   // Toast.makeText(baseContext,"$lat",Toast.LENGTH_SHORT).show()
+//
+//                    //Toast.makeText(baseContext,"$lon",Toast.LENGTH_SHORT).show()
+//
+//                }
+//                else
+//                {
+//Toast.makeText(baseContext,"failed",Toast.LENGTH_LONG).show()
+//                }
+//            }
+       // Toast.makeText(baseContext,"tesing",Toast.LENGTH_SHORT).show()
+     //  Toast.makeText(baseContext,"$save1",Toast.LENGTH_LONG).show()
      //   Toast.makeText(baseContext,"$lon",Toast.LENGTH_LONG).show()
 
 
 
-//        myRef.child(code).addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(dataSnapshot: DataSnapshot) {
-//                // This method is called once with the initial value and again
-//                // whenever data at this location is updated.
-//                val value = dataSnapshot.getValue(dc::class.java)
-//                lt=value?.latitute.toString()
-//                    lg=value?.longitude.toString()
-//                Toast.makeText(baseContext,"$lt",Toast.LENGTH_LONG).show()
-//                Toast.makeText(baseContext,"$lg",Toast.LENGTH_LONG).show()
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                // Failed to read value
-//                Toast.makeText(baseContext, "Failed to read value.$error.toException()", Toast.LENGTH_LONG).show()
-//            }
-//        })
+        myRef.child(code).addValueEventListener(object : ValueEventListener {
+            fun onEvent(dataSnapshot: DataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                val value = dataSnapshot.getValue(dc::class.java)
+                lt=value?.latitute.toString()
+                    lg=value?.longitude.toString()
 
+
+
+
+
+                Toast.makeText(baseContext,"$lt",Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext,"$lg",Toast.LENGTH_LONG).show()
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+
+                val value = dataSnapshot.getValue(dc::class.java)
+                lt=value?.latitute.toString()
+                lg=value?.longitude.toString()
+                Toast.makeText(baseContext,"$lt",Toast.LENGTH_LONG).show()
+                Toast.makeText(baseContext,"$lg",Toast.LENGTH_LONG).show()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Failed to read value
+                Toast.makeText(baseContext, "Failed to read value.$error.toException()", Toast.LENGTH_LONG).show()
+            }
+        })
+
+
+        val intent= Intent(this,studentmap::class.java)
+       // intent.putExtra("mycode",code)
+        startActivity(intent)
 
     }
 

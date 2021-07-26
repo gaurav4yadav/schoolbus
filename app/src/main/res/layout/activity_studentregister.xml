@@ -77,19 +77,18 @@
 
     <Button
         android:id="@+id/button4"
+        android:text="REGISTER NOW"
         android:layout_width="326dp"
         android:layout_height="79dp"
         android:background="@color/design_default_color_secondary_variant"
         android:fontFamily="sans-serif-smallca"
         android:lineSpacingExtra="24sp"
         android:onClick="goon"
-        android:text="Login"
         android:shadowRadius="20"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

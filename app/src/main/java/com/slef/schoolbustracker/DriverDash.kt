@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
@@ -15,6 +19,8 @@ class DriverDash : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     lateinit var databaseRef: DatabaseReference
+    var marker: Marker? = null
+    var sydney = LatLng(23.2295537,77.392109)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_dash)
@@ -34,12 +40,16 @@ class DriverDash : AppCompatActivity() {
                 if(document!=null)
                 {
                     trya=document.getString("uniquedb").toString()
-
+//                    sydney = LatLng(location.getLatitude(), location.getLongitude())
+//                    if(marker!=null)
+//                        marker!!.remove()
+//                    marker=map.addMarker(MarkerOptions().position(sydney).title("here"))
+//                    map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
 
                 }
             }
 
-        Toast.makeText(baseContext,"$trya", Toast.LENGTH_LONG).show()
+      //  Toast.makeText(baseContext,"$trya", Toast.LENGTH_LONG).show()
     }
 
 
