@@ -161,7 +161,7 @@ var marker:Marker? = null
                     }
 
 
-                    Toast.makeText(baseContext,"$myemail", Toast.LENGTH_LONG).show()
+                //    Toast.makeText(baseContext,"$myemail", Toast.LENGTH_LONG).show()
                     database.collection("driver").document(myemail.toString().trim()).get()
                         .addOnSuccessListener { document->
                             if(document!=null)
@@ -174,7 +174,7 @@ var marker:Marker? = null
                                     .addOnSuccessListener {
                                         Toast.makeText(
                                             applicationContext,
-                                            "Locations written into the database",
+                                            "Locations shared",
                                             Toast.LENGTH_LONG
                                         ).show()
                                     }
@@ -241,7 +241,11 @@ var marker:Marker? = null
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
+        Toast.makeText(
+            applicationContext,
+            "Press middle button to run in background ",
+            Toast.LENGTH_LONG
+        ).show()
     }
 
 

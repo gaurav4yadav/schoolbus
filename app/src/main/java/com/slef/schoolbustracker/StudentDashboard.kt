@@ -14,6 +14,8 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import kotlin.system.exitProcess
+
 //        var myemail:String?=null
 //        val user = Firebase.auth.currentUser
 //        user?.let {
@@ -50,13 +52,37 @@ var lt=""
 
     }
 
+    private var backPressedTime:Long = 0
+    lateinit var backToast:Toast
+    override fun onBackPressed() {
+        backToast = Toast.makeText(this, "Press back again to leave the app.", Toast.LENGTH_LONG)
+        if (backPressedTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel()
+            finishAffinity()
+            exitProcess(0)
+            return
+        } else {
+            backToast.show()
+        }
+        backPressedTime = System.currentTimeMillis()
+    }
+
+
     fun startdata(view: View) {
 
         val drivercode = findViewById<EditText>(R.id.editText)
         code = drivercode.text.toString()
+        
 
         val path="driver"+code
-        //Toast.makeText(baseContext,"$path",Toast.LENGTH_LONG).show()
+        
+        if(code.isEmpty()) {
+
+           drivercode.requestFocus();
+            drivercode.setError("FIELD CANNOT BE EMPTY")
+        }
+        else {
+            //Toast.makeText(baseContext,"$path",Toast.LENGTH_LONG).show()
 
 //        myRef.child(code).get()
 //            .addOnSuccessListener {
@@ -78,49 +104,52 @@ var lt=""
 //Toast.makeText(baseContext,"failed",Toast.LENGTH_LONG).show()
 //                }
 //            }
-       // Toast.makeText(baseContext,"tesing",Toast.LENGTH_SHORT).show()
-     //  Toast.makeText(baseContext,"$save1",Toast.LENGTH_LONG).show()
-     //   Toast.makeText(baseContext,"$lon",Toast.LENGTH_LONG).show()
+            // Toast.makeText(baseContext,"tesing",Toast.LENGTH_SHORT).show()
+            //  Toast.makeText(baseContext,"$save1",Toast.LENGTH_LONG).show()
+            //   Toast.makeText(baseContext,"$lon",Toast.LENGTH_LONG).show()
+
+
+            myRef.child(code).addValueEventListener(object : ValueEventListener {
+                fun onEvent(dataSnapshot: DataSnapshot) {
+                    // This method is called once with the initial value and again
+                    // whenever data at this location is updated.
+                    val value = dataSnapshot.getValue(dc::class.java)
+                    lt = value?.latitute.toString()
+                    lg = value?.longitude.toString()
 
 
 
-        myRef.child(code).addValueEventListener(object : ValueEventListener {
-            fun onEvent(dataSnapshot: DataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                val value = dataSnapshot.getValue(dc::class.java)
-                lt=value?.latitute.toString()
-                    lg=value?.longitude.toString()
 
 
+                    Toast.makeText(baseContext, "$lt", Toast.LENGTH_LONG).show()
+                    Toast.makeText(baseContext, "$lg", Toast.LENGTH_LONG).show()
+                }
+
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
 
 
+                    val value = dataSnapshot.getValue(dc::class.java)
+                    lt = value?.latitute.toString()
+                    lg = value?.longitude.toString()
+                    Toast.makeText(baseContext, "$lt", Toast.LENGTH_LONG).show()
+                    Toast.makeText(baseContext, "$lg", Toast.LENGTH_LONG).show()
+                }
 
-                Toast.makeText(baseContext,"$lt",Toast.LENGTH_LONG).show()
-                Toast.makeText(baseContext,"$lg",Toast.LENGTH_LONG).show()
-            }
-
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-
-
-                val value = dataSnapshot.getValue(dc::class.java)
-                lt=value?.latitute.toString()
-                lg=value?.longitude.toString()
-                Toast.makeText(baseContext,"$lt",Toast.LENGTH_LONG).show()
-                Toast.makeText(baseContext,"$lg",Toast.LENGTH_LONG).show()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Failed to read value
-                Toast.makeText(baseContext, "Failed to read value.$error.toException()", Toast.LENGTH_LONG).show()
-            }
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    // Failed to read value
+                    Toast.makeText(
+                        baseContext,
+                        "Failed to read value.$error.toException()",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            })
 
 
-        val intent= Intent(this,studentmap::class.java)
-       // intent.putExtra("mycode",code)
-        startActivity(intent)
-
+            val intent = Intent(this, studentmap::class.java)
+            // intent.putExtra("mycode",code)
+            startActivity(intent)
+        }
     }
 
 

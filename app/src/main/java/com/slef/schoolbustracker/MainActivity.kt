@@ -1,19 +1,21 @@
 package com.slef.schoolbustracker
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
+import android.location.LocationManager
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.location.LocationManagerCompat
+import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.slef.schoolbustracker.models.myuser
-import java.sql.Driver
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,7 +52,10 @@ class MainActivity : AppCompatActivity() {
             )
 
 
-    }
+
+
+        }
+
 
 
     fun studentloginfunc(view: View) {
@@ -102,5 +107,5 @@ private fun updateUI(firebaseUser: FirebaseUser?) {
 
     }
 
-
 }
+
