@@ -23,31 +23,31 @@
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="326dp"
-        android:layout_height="79dp"
+        android:layout_width="294dp"
+        android:layout_height="56dp"
         android:background="@color/design_default_color_secondary_variant"
         android:fontFamily="sans-serif-smallca"
         android:lineSpacingExtra="24sp"
+        android:onClick="TrackBus"
         android:shadowRadius="20"
+        android:text="Login"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textFontWeight="20"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:onClick="TrackBus"
-        android:text="Login"
-        android:textFontWeight="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.801" />
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="301dp"
         android:layout_height="61dp"
-
+        android:background="@drawable/design"
         android:ems="10"
         android:hint="Enter Password"
         android:inputType="textPassword"
@@ -56,13 +56,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintVertical_bias="0.632" />
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="301dp"
         android:layout_height="61dp"
-
+        android:background="@drawable/design"
         android:ems="10"
         android:hint="Enter Email address"
         android:inputType="textEmailAddress"
@@ -76,6 +76,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:onClick="gotoregisterationfun"
         android:text="click here to Register"
         app:layout_constraintBottom_toBottomOf="parent"

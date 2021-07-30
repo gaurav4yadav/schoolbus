@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.os.SystemClock
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.google.android.gms.common.api.ApiException
@@ -33,9 +34,11 @@ class DriverDash : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     lateinit var databaseRef: DatabaseReference
+
     var marker: Marker? = null
     var sydney = LatLng(23.2295537,77.392109)
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_driver_dash)
         enablegps()
@@ -51,7 +54,7 @@ class DriverDash : AppCompatActivity() {
 
             myemail = user.email.toString()
         }
-      //  Toast.makeText(baseContext,"$myemail", Toast.LENGTH_LONG).show()
+        Toast.makeText(baseContext,"workded ",Toast.LENGTH_LONG)
 
 
 
@@ -74,13 +77,15 @@ class DriverDash : AppCompatActivity() {
                 }
             }
 
-      //  Toast.makeText(baseContext,"$trya", Toast.LENGTH_LONG).show()
+
 
 
 
 
 
     }
+
+
     private var backPressedTime:Long = 0
     lateinit var backToast:Toast
     override fun onBackPressed() {

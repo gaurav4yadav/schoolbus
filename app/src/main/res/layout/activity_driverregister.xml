@@ -8,42 +8,51 @@
 
     tools:context=".DriverRegister">
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="301dp"
-        android:layout_height="61dp"
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="304dp"
+        android:layout_height="64dp"
+        android:background="@color/design_default_color_secondary_variant"
+        android:fontFamily="sans-serif-smallca"
+        android:lineSpacingExtra="24sp"
         android:onClick="adddriverfun"
-        android:text="Add Driver"
+        android:shadowRadius="20"
+        android:text="Add me"
         android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textFontWeight="20"
+        android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753" />
+        app:layout_constraintVertical_bias="0.849" />
 
 
     <EditText
         android:id="@+id/editText"
         android:layout_width="301dp"
         android:layout_height="61dp"
-
+        android:background="@drawable/design"
         android:ems="10"
         android:hint="Drivr email "
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        app:layout_constraintVertical_bias="0.258" />
 
     <EditText
         android:id="@+id/editText2"
         android:layout_width="301dp"
         android:layout_height="61dp"
         android:layout_marginTop="16dp"
-
+        android:background="@drawable/design"
         android:ems="10"
         android:hint="Driver name "
         android:inputType="textPersonName"
@@ -53,13 +62,13 @@
         app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542" />
+        app:layout_constraintVertical_bias="0.648" />
 
     <EditText
         android:id="@+id/editText1"
         android:layout_width="301dp"
         android:layout_height="61dp"
-
+        android:background="@drawable/design"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
@@ -69,14 +78,13 @@
         app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.24" />
-
+        app:layout_constraintVertical_bias="0.395" />
 
     <EditText
         android:id="@+id/editText3"
         android:layout_width="301dp"
         android:layout_height="61dp"
-
+        android:background="@drawable/design"
         android:ems="10"
         android:hint="create Bus Code "
         android:inputType="textPersonName"
@@ -86,15 +94,37 @@
         app:layout_constraintHorizontal_bias="0.563"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.385" />
+        app:layout_constraintVertical_bias="0.526" />
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="253dp"
+        android:layout_height="68dp"
+        android:background="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:text="Sign up"
+        android:textAlignment="viewStart"
+        android:textAllCaps="false"
+
+
+        android:textColorHint="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="30sp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.156"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.053" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

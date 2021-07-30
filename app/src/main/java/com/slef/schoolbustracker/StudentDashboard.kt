@@ -52,20 +52,7 @@ var lt=""
 
     }
 
-    private var backPressedTime:Long = 0
-    lateinit var backToast:Toast
-    override fun onBackPressed() {
-        backToast = Toast.makeText(this, "Press back again to leave the app.", Toast.LENGTH_LONG)
-        if (backPressedTime + 2000 > System.currentTimeMillis()) {
-            backToast.cancel()
-            finishAffinity()
-            exitProcess(0)
-            return
-        } else {
-            backToast.show()
-        }
-        backPressedTime = System.currentTimeMillis()
-    }
+
 
 
     fun startdata(view: View) {
@@ -150,6 +137,12 @@ var lt=""
             // intent.putExtra("mycode",code)
             startActivity(intent)
         }
+    }
+
+    fun closefunction(view: View)
+    {
+        finishAffinity()
+        exitProcess(0)
     }
 
 

@@ -11,8 +11,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="334dp"
-        android:layout_height="76dp"
+        android:layout_width="244dp"
+        android:layout_height="79dp"
         android:background="@color/design_default_color_secondary_variant"
         android:fontFamily="sans-serif-smallca"
         android:lineSpacingExtra="24sp"
@@ -26,9 +26,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.565" />
+        app:layout_constraintVertical_bias="0.464" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -36,15 +37,15 @@
         android:layout_height="182dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.29"
+        app:layout_constraintVertical_bias="0.336"
         app:srcCompat="@drawable/bus" />
 
     <Button
         android:id="@+id/button7"
-        android:layout_width="317dp"
+        android:layout_width="245dp"
         android:layout_height="81dp"
         android:background="@color/design_default_color_secondary_variant"
         android:fontFamily="sans-serif-smallca"
@@ -59,10 +60,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/button"
-        app:layout_constraintVertical_bias="0.503" />
+        app:layout_constraintVertical_bias="0.391" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

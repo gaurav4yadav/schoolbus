@@ -41,6 +41,17 @@ class studentLogin : AppCompatActivity() {
         val password = editText1.text.toString()
 
 
+        if (email.isEmpty()) {
+            editText.requestFocus()
+            editText.error = "FIELD CANNOT BE EMPTY"
+        }
+     else if (password.length < 8)
+    {
+        editText1.requestFocus()
+        editText1.error = "length should be larger than 8 digits"
+    }
+    else
+    {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
@@ -62,6 +73,7 @@ class studentLogin : AppCompatActivity() {
                     updateUI(null)
                 }
             }
+    }
     }
     private fun updateUI(firebaseUser: FirebaseUser?) {
         if(firebaseUser != null) {
