@@ -8,6 +8,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
@@ -78,7 +79,8 @@ class studentmap : AppCompatActivity(), OnMapReadyCallback {
                 sydney = LatLng(lt.toDouble(),lg.toDouble())
                 if(marker!=null)
                     marker!!.remove()
-                marker=map.addMarker(MarkerOptions().position(sydney).title("here"))
+                marker=map.addMarker(MarkerOptions().position(sydney).title("Bus").icon(
+                    BitmapDescriptorFactory.fromResource(R.drawable.iconcrop)))
                 map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
                 map.moveCamera(CameraUpdateFactory.zoomTo(16f))
 
@@ -96,7 +98,8 @@ class studentmap : AppCompatActivity(), OnMapReadyCallback {
                 sydney = LatLng(lt.toDouble(),lg.toDouble())
                 if(marker!=null)
                     marker!!.remove()
-               marker=map.addMarker(MarkerOptions().position(sydney).title("here"))
+               marker=map.addMarker(MarkerOptions().position(sydney).title("Bus").icon(
+                   BitmapDescriptorFactory.fromResource(R.drawable.iconcrop)))
                 map.moveCamera(CameraUpdateFactory.newLatLng(sydney))
                 map.moveCamera(CameraUpdateFactory.zoomTo(16f))
 

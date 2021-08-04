@@ -61,7 +61,10 @@ class MainActivity : AppCompatActivity() {
     fun studentloginfunc(view: View) {
 
         val intent = Intent(this, studentLogin::class.java)
+
         startActivity(intent)
+
+
     }
 
 
@@ -69,6 +72,7 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, DriverLoginNew::class.java)
         startActivity(intent)
+
     }
 
 private fun updateUI(firebaseUser: FirebaseUser?) {
@@ -90,7 +94,9 @@ private fun updateUI(firebaseUser: FirebaseUser?) {
                 if (it.size() == 0) {
 
                     val intent = Intent(this, StudentDashboard::class.java)
+
                     startActivity(intent)
+                    finish()
 
                 }
                 else
@@ -100,6 +106,7 @@ private fun updateUI(firebaseUser: FirebaseUser?) {
 
                     val intent = Intent(this, DriverDash::class.java)
                     startActivity(intent)
+                    finish()
                 }
             }
 

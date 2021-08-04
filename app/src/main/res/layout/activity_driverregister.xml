@@ -13,7 +13,7 @@
         android:id="@+id/button4"
         android:layout_width="304dp"
         android:layout_height="64dp"
-        android:background="@color/design_default_color_secondary_variant"
+        android:background="@drawable/buttonback"
         android:fontFamily="sans-serif-smallca"
         android:lineSpacingExtra="24sp"
         android:onClick="adddriverfun"
