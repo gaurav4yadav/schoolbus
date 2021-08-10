@@ -94,5 +94,8 @@ class DriverLoginNew : AppCompatActivity() {
         val intent= Intent(this,DriverRegister::class.java)
         startActivity(intent)
     }
+    fun forgetfun(view: View) {
+        val intent=Intent(this,forgetpassword::class.java)
+        startActivity(intent)}
 
 }

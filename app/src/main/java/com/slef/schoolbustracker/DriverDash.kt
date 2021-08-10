@@ -54,7 +54,7 @@ class DriverDash : AppCompatActivity() {
 
             myemail = user.email.toString()
         }
-        Toast.makeText(baseContext,"workded ",Toast.LENGTH_LONG)
+        //Toast.makeText(baseContext,"workded ",Toast.LENGTH_LONG)
 
 
 

@@ -96,6 +96,10 @@ class studentLogin : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun forgetfun(view: View) {
+        val intent=Intent(this,forgetpassword::class.java)
+        startActivity(intent)}
+
 
 }
 

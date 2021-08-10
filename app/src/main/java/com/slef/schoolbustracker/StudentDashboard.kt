@@ -6,14 +6,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_driver_dash.*
 import kotlin.system.exitProcess
 
 //        var myemail:String?=null
@@ -26,6 +26,13 @@ import kotlin.system.exitProcess
 
 public var code=""
 class StudentDashboard : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
+    lateinit var databaseRef: DatabaseReference
+
+    var uni:String=""
+    var em:String=""
+    var nam:String=""
+
 
     val database = Firebase.database
 var lt=""
@@ -41,7 +48,31 @@ var lt=""
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_dashboard)
 
+        var database: FirebaseFirestore ?=null
+        database = FirebaseFirestore.getInstance()
+        var myemail:String?=null
+        val user = Firebase.auth.currentUser
+        user?.let {
 
+            myemail = user.email.toString()
+        }
+        database.collection("member").document(myemail.toString().trim()).get()
+            .addOnSuccessListener { document->
+                if(document!=null)
+                {
+                    uni=document.getString("uniquedb").toString()
+                    em=document.getString("emaildb").toString()
+                    nam =document.getString("namedb").toString()
+
+
+
+                    etname.setText(uni)
+                    etemail.setText(em)
+                    etunique.setText(uni)
+//
+
+                }
+            }
 
 
 
