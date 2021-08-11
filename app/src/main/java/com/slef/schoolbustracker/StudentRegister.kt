@@ -1,11 +1,11 @@
 package com.slef.schoolbustracker
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -106,9 +106,14 @@ class StudentRegister : AppCompatActivity() {
                             "phonedb" to phone
 
                         )
+                        var email = ""
+                        val useras = auth.currentUser
+                        if (useras !== null) {
 
-                        db.collection("member")
-                            .add(data)
+                            email = useras.email.toString()
+                        }
+                        db.collection("member").document(email)
+                            .set(data)
                             .addOnSuccessListener {
                                 //   Log.d(TAG, "DocumentSnapshot written with ID: ${documentReference.id}")
                                 Toast.makeText(

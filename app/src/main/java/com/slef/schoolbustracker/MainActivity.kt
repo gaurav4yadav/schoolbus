@@ -1,16 +1,13 @@
 package com.slef.schoolbustracker
 
-import android.content.Context
+import android.app.ActivityOptions
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.LocationManager
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.location.LocationManagerCompat
-import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -62,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, studentLogin::class.java)
 
-        startActivity(intent)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
 
     }
@@ -71,7 +68,7 @@ class MainActivity : AppCompatActivity() {
     fun driverlogin(view: View) {
 
         val intent = Intent(this, DriverLoginNew::class.java)
-        startActivity(intent)
+        startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
 
     }
 

@@ -11,27 +11,26 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="367dp"
-        android:layout_height="174dp"
+        android:layout_width="319dp"
+        android:layout_height="118dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.055"
         app:srcCompat="@drawable/mybuslogo" />
 
     <LinearLayout
-        android:layout_width="416dp"
-        android:layout_height="415dp"
+        android:layout_width="408dp"
+        android:layout_height="295dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854">
+        app:layout_constraintVertical_bias="0.876">
 
         <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
@@ -47,21 +46,23 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="250sp"
-                    android:padding="5sp"
-                    android:src="@drawable/dr"></ImageView>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:paddingTop="25sp"
+
                     android:text="Driver"
-                    android:textColor="@color/colorAccent"
                     android:textAlignment="center"
+                    android:textColor="@color/colorAccent"
                     android:textSize="30sp"></TextView>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="248dp"
+                    android:padding="5sp"
+                    android:src="@drawable/dr"></ImageView>
+
 
             </LinearLayout>
 
@@ -69,34 +70,34 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="181dp"
+            android:layout_height="288dp"
             android:layout_marginLeft="10sp"
             android:layout_marginTop="10sp"
             android:layout_marginRight="10sp"
             android:onClick="studentloginfunc">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="267dp"
-                android:orientation="vertical"
-                android:textAlignment="center">
-
-                <ImageView
-                    android:layout_width="179dp"
-                    android:layout_height="match_parent"
-                    android:padding="5sp"
-                    android:src="@drawable/std"></ImageView>
+                android:layout_width="169dp"
+                android:layout_height="284dp"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="180dp"
-                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:paddingTop="25sp"
+
                     android:text="Student"
                     android:textAlignment="center"
                     android:textColor="@color/colorAccent"
                     android:textSize="30sp"></TextView>
+
+                <ImageView
+                    android:layout_width="179dp"
+                    android:layout_height="244dp"
+                    android:padding="5sp"
+                    android:src="@drawable/boy"></ImageView>
+
 
             </LinearLayout>
 
@@ -104,6 +105,37 @@
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="314dp"
+        android:layout_height="37dp"
+        android:fontFamily="cursive"
+
+        android:text="Select one of the following"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.404" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome !!"
+
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
